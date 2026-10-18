@@ -1,3 +1,5 @@
+const prompt = require('prompt-sync')()
+
 let juegos = [
   { id: 1, titulo: "Grand Theft Auto: San Andreas", genero: "Accion", empresa: "Rockstar Games", ano: 2004 },
   { id: 2, titulo: "The Last of Us", genero: "Supervivencia", empresa: "Naughty Dog", ano: 2013 },
@@ -6,48 +8,54 @@ let juegos = [
 ];
 
 
-// 1. Listar juegos
-function listarJuegos(lista = juegos) {}
+// 1. Mostrar entrada
+function mostrarEntrada() {}
 
 
-//2. Filtrar por genero
-function filtrarPorGenero(genero) {
-    return juegos.filter(juego => 
-    juego.genero.toLowerCase().includes(genero.toLowerCase().trim())
-  );
+//2. Anadir entrada
+function anadirEntrada() {
+    
 }
 
 
-// 3. Filtrar por empresa
-function filtrarPorEmpresa(empresa) {
-    return juegos.filter(juego => 
-    juego.empresa.toLowerCase().includes(empresa.toLowerCase().trim())
-  );
+// 3. Buscar por titulo
+function buscarPorTitulo() {
+    
 }
 
 
 
-//4. Ordenar alfacéticamente
-function ordenarAlfabeticamente() {}
+//4. Filtrar por categoria
+function filtrarPorCategoria() {}
 
 
-//5. Ordenar por año
-function ordenarPorAno() {}
+//5. Filtrar por estado
+function filtrarPorEstado() {}
 
 
-//6. Añadir juego
-function anadirJuego(titulo, genero, empresa, ano) {
+// 6. Modificar entrada
+function modificarEntrada(id, nuevoTitulo, nuevoGenero, nuevaEmpresa, nuevoAno) {
 
-    return nuevoJuego;
+    
 }
 
 
-//7. Editar juego
-function editarJuego(id, nuevosDatos) {}
+// 7. Eliminar entrada
+function eliminarEntrada() {}
 
 
-//8. Eliminar último juego registrado
-function eliminarUltimoJuego() {
+// 8. Ordenar por valoración
+function ordenarPorValoracion() {
 
-    return juegos.pop();
+    
+}
+
+// 9. Ordenar por fecha (por año)
+function ordenarPorFecha() {
+  
+}
+
+// 10. Ordenar por ID
+function ordenarPorId() {
+  
 }
