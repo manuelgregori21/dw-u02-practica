@@ -1,0 +1,27 @@
+{
+  "name": "dw-u02-practicas",
+  "version": "1.0.0",
+  "description": "Practica dw npm",
+  "homepage": "https://github.com/manuelgregori21/dw-u02-practica#readme",
+  "bugs": {
+    "url": "https://github.com/manuelgregori21/dw-u02-practica/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manuelgregori21/dw-u02-practica.git"
+  },
+  "license": "ISC",
+  "author": "Manuel Gregori",
+  "type": "commonjs",
+  "main": "datos.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node datos.js"
+  },
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  },
+  "devDependencies": {
+    "standard": "^17.1.2"
+  }
+}
