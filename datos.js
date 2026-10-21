@@ -13,52 +13,89 @@ const juegos = [
 
 // 1. Mostrar entrada
 function mostrarEntrada () {
-  console.log('LISTA DE JUEGOS')
+  console.log("LISTA DE JUEGOS");
   for (const juego of lista) {
-    console.log(juego.id + ':' + juego.titulo + '-' + juego.genero + '-' + juego.empresa + '-' + juego.ano + '-' + juego.valoracion)
+    console.log(juego.id + ':' + juego.titulo + '-' + juego.genero + '-' + juego.empresa + '-' + juego.ano + '-' + juego.valoracion);
   }
 }
 
 // 2. Anadir entrada
 function anadirEntrada () {
-  const titulo = prompt('Título del juego:')
-  const genero = prompt('Género:')
-  const empresa = prompt('Empresa:')
-  const ano = Number(prompt('Año:'))
-  const valoracion = Number(prompt('Valoración:'))
+  const titulo = prompt("Título del juego:");
+  const genero = prompt("Género:");
+  const empresa = prompt("Empresa:");
+  const ano = Number(prompt("Año:"));
+  const valoracion = Number(prompt("Valoración:"));
 
-  juegos.push()
-  console.log('Juego añadido')
+  //Añadir nuevo id
+  let nuevoId = 1;
+  for (const juego of juegos) {
+    if (juego.id >= nuevoId) {
+      nuevoId = juego.id + 1;
+    }
+  }
+
+  juegos.push({ id: nuevoId, titulo: titulo, genero: genero, empresa: empresa, ano: ano, valoracion: valoracion });
+  console.log("Juego añadido");
 }
+
 
 // 3. Buscar por titulo
 function buscarPorTitulo () {
-  const texto = prompt('Introduce el título a buscar:')
-  const juegoTitulo = juegos.find(juegos => juegos.titulo === 4)
+  const texto = prompt("Introduce el título a buscar:");
+  const juegoTitulo = juegos.find(juegos => juegos.titulo === 4);
+  mostrarEntradas(juegoTitulo);
 }
+
 
 // 4. Filtrar por categoria
 function filtrarPorCategoria () {
-  const genero = prompt('Introduce el género a filtrar:')
+  const genero = prompt("Introduce el género a filtrar:");
+    const juegoGenero = juegos.filter(juegos => juegos.genero === 4); // juegos.filter = devuelve un nuevo array con todos los elementos que cumplen la condición
+    mostrarEntradas(juegoGenero); 
 }
+
 
 // 5. Filtrar por estado
 function filtrarPorEstado () {
-  const empresa = prompt('Introduce la empresa a filtrar:')
+  const empresa = prompt("Introduce la empresa a filtrar:");
+    const juegoEmpresa = juegos.filter(juegos => juegos.empresa === 4);
+    mostrarEntradas(juegoEmpresa);
 }
+
 
 // 6. Modificar entrada
 function modificarEntrada () {
-  const id = Number(prompt('ID del juego que quieres modificar:'))
+  const id = Number(prompt("ID del juego que quieres modificar:"));
+  let juego = juegos.find(item => item.id === id);  // juegos.find = devuelve el primer elemeto que cumpla la condicion o undefined
+
+  if (juego) {
+    juego.titulo = prompt("Nuevo título:", juego.titulo);
+    juego.genero = prompt("Nuevo género:", juego.genero);
+    juego.empresa = prompt("Nueva empresa:", juego.empresa);
+    juego.ano = Number(prompt("Nuevo año:", juego.ano));
+    console.log("Juego modificado correctamente.");
+  } else {
+    console.log("No se ha encontrado ningún juego con ese ID.");
+  }
 }
+
 
 // 7. Eliminar entrada
 function eliminarEntrada () {
-  const id = Number(prompt('ID del juego a eliminar:'))
+  const id = Number(prompt("ID del juego a eliminar:"));
+  let juego = juegos.findIndex(item => item.id === id);  //juegos.findIndex = devuelve el indice o -1
 
-  juegos.pop()
-  console.log('Juego eliminado')
+  if(juego !== -1){
+    juegos.splice(juego, 1); //splice para eliminar, modificar o sustituir
+    console.log("Juego eliminado correctamente.");
+  } else {
+    console.log("No se ha encontrado ningún juego con ese ID.");
+  }
 }
+// juegos.pop() = elimina la ultima posicion
+// juegos.shift() = elimina la primera posicion
+
 
 // 8. Ordenar por valoración
 function ordenarPorValoracion () {
@@ -66,17 +103,20 @@ function ordenarPorValoracion () {
   mostrarEntrada(copia)
 }
 
+
 // 9. Ordenar por fecha (por año)
 function ordenarPorFecha () {
   const copia = [...juegos].sort((a, b) => a.ano - b.ano)
   mostrarEntrada(copia)
 }
 
+
 // 10. Ordenar por ID
 function ordenarPorId () {
   const copia = [...juegos].sort((a, b) => a.id - b.id)
   mostrarEntrada(copia)
 }
+
 
 function menu () {
   let opcion = ''
