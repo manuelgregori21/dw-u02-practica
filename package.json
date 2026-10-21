@@ -16,12 +16,16 @@
   "main": "datos.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node datos.js"
+    "start": "node datos.js",
+    "lint": "eslint ."
   },
   "dependencies": {
     "prompt-sync": "^4.2.0"
   },
   "devDependencies": {
     "standard": "^17.1.2"
+  },
+  "eslintConfig": {
+    "extends": "standard"
   }
 }
