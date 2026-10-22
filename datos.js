@@ -12,7 +12,7 @@ const juegos = [
 ]
 
 // 1. Mostrar entrada
-function mostrarEntrada () {
+function mostrarEntradas (lista = juegos) {
   console.log('LISTA DE JUEGOS')
   for (const juego of lista) {
     console.log(juego.id + ':' + juego.titulo + '-' + juego.genero + '-' + juego.empresa + '-' + juego.ano + '-' + juego.valoracion)
@@ -94,19 +94,19 @@ function eliminarEntrada () {
 // 8. Ordenar por valoración
 function ordenarPorValoracion () {
   const copia = [...juegos].sort((a, b) => a.valoracion - b.valoracion)
-  mostrarEntrada(copia)
+  mostrarEntradas(copia)
 }
 
 // 9. Ordenar por fecha (por año)
 function ordenarPorFecha () {
-  const copia = [...juegos].sort((a, b) => a.ano - b.ano)
-  mostrarEntrada(copia)
+  const copia = [...juegos].sort((a, b) => a.ano - b.ano) // el [...juegos] es igual a const copia = juegos.slice()
+  mostrarEntradas(copia)
 }
 
 // 10. Ordenar por ID
 function ordenarPorId () {
   const copia = [...juegos].sort((a, b) => a.id - b.id)
-  mostrarEntrada(copia)
+  mostrarEntradas(copia)
 }
 
 function menu () {
